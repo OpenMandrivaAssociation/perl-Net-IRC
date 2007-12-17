@@ -12,7 +12,6 @@ Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{module}
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{module}-%{version}.tar.bz2
 Patch0:		%{name}-0.75-workwithlocalhost.patch
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	perl-devel
 Buildarch:	noarch
 
