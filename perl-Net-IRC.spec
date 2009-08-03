@@ -1,28 +1,27 @@
-%define	module	Net-IRC
-%define	name	perl-%{module}
-%define	version	0.75
-%define	release %mkrel 5
+%define	upstream_name	 Net-IRC
+%define	upstream_version 0.75
 
-Name:		%{name}
-Summary:	%{module} module for perl
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	%{upstream_name} module for perl
 License:	GPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{module}-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.bz2
 Patch0:		%{name}-0.75-workwithlocalhost.patch
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	perl-devel
+
 Buildarch:	noarch
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
-%{module} perl module allows you to access IRC networks with perl.
+%{upstream_name} perl module allows you to access IRC networks with perl.
 It is used to program irc bot in perl or various software.
 
 %prep
-%setup -q -n %{module}-%{version}
-%patch -p1
+%setup -q -n %{upstream_name}-%{upstream_version}
+%patch0 -p1
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -40,4 +39,3 @@ It is used to program irc bot in perl or various software.
 %doc README Changes TODO 
 %{perl_vendorlib}/Net
 %{_mandir}/*/*
-
