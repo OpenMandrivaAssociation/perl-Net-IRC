@@ -1,5 +1,5 @@
 %define	upstream_name	 Net-IRC
-%define	upstream_version 0.75
+%define	upstream_version 0.76
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -9,8 +9,9 @@ Summary:	%{upstream_name} module for perl
 License:	GPL
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:		%{name}-0.75-workwithlocalhost.patch
+Patch1:		%{name}-0.76-ensure_automatic_build.patch
 
 Buildarch:	noarch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
@@ -22,9 +23,12 @@ It is used to program irc bot in perl or various software.
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
 %patch0 -p1
+%patch1 -p2
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+%{__perl} Makefile.PL INSTALLDIRS=vendor <<EOF
+I acknowledge that Net::IRC is unsupported and I wish to proceed.
+EOT
 %make
 
 %install
