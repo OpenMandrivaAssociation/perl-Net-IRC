@@ -3,13 +3,12 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
-
-Summary:	%{upstream_name} module for perl
+Release:    %mkrel 2
+Summary:	Perl interface to the Internet Relay Chat protocol
 License:	GPL
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+Source:     http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:		%{name}-0.75-workwithlocalhost.patch
 Patch1:		%{name}-0.76-add-missing-modules.patch
 Patch2:		%{name}-0.76-no-warning.patch
