@@ -11,8 +11,8 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:		%{name}-0.75-workwithlocalhost.patch
-Patch1:		%{name}-0.76-ensure_automatic_build.patch
-
+Patch1:		%{name}-0.76-add-missing-modules.patch
+Patch2:		%{name}-0.76-no-warning.patch
 Buildarch:	noarch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
 
@@ -23,20 +23,19 @@ It is used to program irc bot in perl or various software.
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
 %patch0 -p1
-%patch1 -p2
+%patch1 -p1
+%patch2 -p1
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor <<EOF
-I acknowledge that Net::IRC is unsupported and I wish to proceed.
-EOT
+%{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
-%{makeinstall_std}
+%{__rm} -rf %{buildroot}
+%makeinstall_std
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT 
+%{__rm} -rf %{buildroot} 
 
 %files
 %defattr(-,root,root)
