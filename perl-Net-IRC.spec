@@ -1,5 +1,5 @@
 %define	upstream_name	 Net-IRC
-%define upstream_version 0.78
+%define upstream_version 0.79
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
