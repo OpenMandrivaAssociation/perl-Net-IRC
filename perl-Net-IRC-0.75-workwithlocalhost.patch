@@ -1,0 +1,13 @@
+--- Net-IRC-0.75/Connection.pm.orig	2003-12-04 23:50:16.000000000 +0100
++++ Net-IRC-0.75/Connection.pm	2004-06-03 22:37:15.028600562 +0200
+@@ -237,6 +237,10 @@ sub connect {
+     }
+     $self->server( $ENV{IRCSERVER} );
+   }
++
++  my @myhostname= gethostbyname($self->hostname());
++  $self->hostname (undef) if $myhostname[0] eq 'localhost';
++  
+   unless ($self->nick) {
+     $self->nick($ENV{IRCNICK} || eval { scalar getpwuid($>) }
+                 || $ENV{USER} || $ENV{LOGNAME} || "WankerBot");

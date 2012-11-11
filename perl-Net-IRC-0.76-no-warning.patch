@@ -1,0 +1,16 @@
+diff -Naur -x '*~' Net-IRC-0.76/Makefile.PL Net-IRC-0.76-no-warning/Makefile.PL
+--- Net-IRC-0.76/Makefile.PL	2009-09-18 06:02:48.000000000 +0200
++++ Net-IRC-0.76-no-warning/Makefile.PL	2009-09-25 23:45:11.000000000 +0200
+@@ -21,12 +21,6 @@
+ --------------------------------------------------------------------------------
+ WILLROBINSON
+ 
+--t STDIN or die $warning;
+-warn $warning;
+-chomp(my $acceptance = <STDIN>);
+-die "Refusing to install due to lack of confirmation" unless $acceptance eq $ok;
+-
+-
+ WriteMakefile(
+ 	      'NAME'  => 'Net::IRC',
+ 	      'PM'    =>  {
