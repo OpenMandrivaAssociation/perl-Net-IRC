@@ -8,7 +8,7 @@ Release:	4
 Summary:	Perl interface to the Internet Relay Chat protocol
 License:	GPL
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:		%{name}-0.75-workwithlocalhost.patch
 Patch2:		%{name}-0.76-no-warning.patch
