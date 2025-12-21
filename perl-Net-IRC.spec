@@ -13,6 +13,7 @@ Source0:	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_v
 Patch0:		%{name}-0.75-workwithlocalhost.patch
 Patch2:		%{name}-0.76-no-warning.patch
 
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildArch:	noarch
 
