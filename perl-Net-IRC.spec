@@ -1,15 +1,13 @@
 %define	upstream_name	 Net-IRC
-%define upstream_version 0.79
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	0.79
+Release:	5
 
 Summary:	Perl interface to the Internet Relay Chat protocol
 License:	GPL
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{version}.tar.gz
 Patch0:		%{name}-0.75-workwithlocalhost.patch
 Patch2:		%{name}-0.76-no-warning.patch
 
@@ -22,7 +20,7 @@ BuildArch:	noarch
 It is used to program irc bot in perl or various software.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 %patch0 -p1
 %patch2 -p1
 
@@ -62,9 +60,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Mon Aug 03 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.750.0-1mdv2010.0
 + Revision: 407816
-- rebuild using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 0.75-5mdv2009.0
+- rebuild using %0.79 Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 0.75-5mdv2009.0
 + Revision: 241785
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
