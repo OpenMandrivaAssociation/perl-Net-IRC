@@ -2,7 +2,7 @@
 %define upstream_version 0.79
 Name:		perl-%{upstream_name}
 Version:	0.79
-Release:	2
+Release:	3
 
 Summary:	Perl interface to the Internet Relay Chat protocol
 License:	GPL
