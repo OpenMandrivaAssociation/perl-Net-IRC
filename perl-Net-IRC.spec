@@ -2,7 +2,7 @@
 %define upstream_version 0.79
 Name:		perl-%{upstream_name}
 Version:	0.79
-Release:	1
+Release:	2
 
 Summary:	Perl interface to the Internet Relay Chat protocol
 License:	GPL
@@ -21,7 +21,7 @@ BuildArch:	noarch
 It is used to program irc bot in perl or various software.
 
 %prep
-%setup -q -n %{upstream_name}-%{version}
+%setup -q -n Net-IRC-0.79
 %patch -P0 -p1
 %patch -P2 -p1
 
